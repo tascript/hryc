@@ -1,10 +1,20 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import { weather } from './utils/weather'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [temparture, setTemparture] = useState<number[]>([])
+
+  useEffect(() => {
+    const setup = async () => {
+      const res = await weather()
+      setTemparture(res.hourly.temperature_2m as number[])
+    }
+    setup()
+  }, [])
 
   return (
     <>
@@ -23,6 +33,9 @@ function App() {
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
+        </p>
+        <p>
+          {temparture}
         </p>
       </div>
       <p className="read-the-docs">
