@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     const setup = async () => {
       const res = await weather()
-      setTemparture(res.hourly.temperature_2m as number[])
+      setTemparture(res.hourly.temperature_2m)
     }
     setup()
   }, [])
