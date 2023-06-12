@@ -6,15 +6,6 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-  const [temparture, setTemparture] = useState<WeatherResult[]>([])
-
-  useEffect(() => {
-    const setup = async () => {
-      const res = await weather()
-      setTemparture(res)
-    }
-    setup()
-  }, [])
 
   return (
     <>

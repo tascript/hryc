@@ -6,24 +6,19 @@ interface WeatherRawData {
 }
 
 export interface WeatherResult {
-  temperature: number
-  time: string
+  temperature: number[]
+  time: string[]
 }
 
-export const weather = async () => {
+export async function weather() {
   const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=33.60&longitude=130.42&hourly=temperature_2m,rain&forecast_days=3')
   const report = await res.json() as WeatherRawData
-  const temps = report.hourly.temperature_2m
-  const times = report.hourly.time
+  const temperature = report.hourly.temperature_2m
+  const time = report.hourly.time
 
-  let result: WeatherResult[] = []
-  if (temps.length === times.length) {
-    for (let i = 0; i < temps.length; i++) {
-      result.push({
-        temperature: temps[i],
-        time: times[i]
-      })
-    }
+  const result: WeatherResult = {
+    temperature,
+    time
   }
 
   return result
