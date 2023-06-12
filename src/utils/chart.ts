@@ -6,8 +6,14 @@ export function makeData(arg: WeatherResult): ChartData<"line", (number | Point 
     labels: arg.time,
     datasets: [
       {
-        label: '気温',
+        label: 'temperature',
         data: arg.temperature,
+        borderColor: '#c94913'
+      },
+      {
+        label: 'rain',
+        data: arg.rain,
+        borderColor: '#376b83'
       }
     ]
   }

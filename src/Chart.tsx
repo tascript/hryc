@@ -27,6 +27,7 @@ function Chart() {
   const [data, setData] = useState(makeData(
     {
       temperature: [],
+      rain: [],
       time: []
     }
   ))
@@ -40,6 +41,7 @@ function Chart() {
       setData(makeData(
         {
           temperature: [],
+          rain: [],
           time: []
         }
       ))
