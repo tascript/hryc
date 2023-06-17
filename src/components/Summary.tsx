@@ -1,7 +1,6 @@
-import styles from '~/assets/css/App.module.css'
-import Chart from './Chart.tsx'
+import styles from '~/assets/css/Summary.module.css'
 
-function App() {
+function Summary() {
 
   return (
     <>
@@ -11,9 +10,8 @@ function App() {
           hryc is daily weather report in Fukuoka City.
         </p>
       </div>
-      <Chart />
     </>
   )
 }
 
-export default App
+export default Summary

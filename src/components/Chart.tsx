@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { weather } from './utils/weather'
-import { makeData } from './utils/chart'
+import { weather } from '../utils/weather'
+import { makeData } from '../utils/chart'
 import { Line } from 'react-chartjs-2'
 import {
   Chart as ChartJS,
