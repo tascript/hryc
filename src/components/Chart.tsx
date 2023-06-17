@@ -24,10 +24,10 @@ function Chart() {
     Tooltip,
     Legend
   )
-  const result = useContext(weatherContext)
+  const weather = useContext(weatherContext)
 
   return (
-    <Line data={makeData(result)} />
+    <Line data={makeData(weather)} />
   )
 }
 
