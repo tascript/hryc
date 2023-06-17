@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
-import { weather } from '../utils/weather'
+import { useContext } from 'react'
 import { makeData } from '../utils/chart'
+import { weatherContext } from '../utils/context'
 import { Line } from 'react-chartjs-2'
 import {
   Chart as ChartJS,
@@ -24,34 +24,10 @@ function Chart() {
     Tooltip,
     Legend
   )
-  const [data, setData] = useState(makeData(
-    {
-      temperature: [],
-      rain: [],
-      time: []
-    }
-  ))
-  useEffect(() => {
-    const setup = async () => {
-      const res = await weather()
-      setData(makeData(res))
-    }
-    setup()
-    return () => {
-      setData(makeData(
-        {
-          temperature: [],
-          rain: [],
-          time: []
-        }
-      ))
-    }
-  }, [])
-
-
+  const result = useContext(weatherContext)
 
   return (
-    <Line data={data} />
+    <Line data={makeData(result)} />
   )
 }
 
