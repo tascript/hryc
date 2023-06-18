@@ -1,9 +1,10 @@
 import { WeatherResult } from './weather'
 import type { ChartData, Point } from 'chart.js/auto'
+import { getHours } from 'date-fns'
 
 export function makeData(arg: WeatherResult): ChartData<"line", (number | Point | null)[], unknown> {
   return {
-    labels: arg.time,
+    labels: arg.time.map(t => getHours(new Date(t))),
     datasets: [
       {
         label: 'temperature',
