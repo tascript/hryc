@@ -8,10 +8,8 @@ function Summary() {
   const weather = useContext(weatherContext)
   let tempature = 0
   let rain = 0
-  let time = ''
   for (let i = 0; i < weather.time.length; i++) {
     if (getHours(new Date(weather.time[i])) === getHours(new Date())) {
-      time = weather.time[i]
       tempature = weather.temperature[i]
       rain = weather.rain[i]
       break
